@@ -1,0 +1,20 @@
+{
+  "pages": [
+    "pages/index/main",
+    "pages/list/main",
+    "pages/law/main",
+    "pages/criterion/main",
+    "pages/spotCheck/main",
+    "pages/flightCheck/main",
+    "pages/article/main",
+    "pages/test/main"
+  ],
+
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "enablePullDownRefresh": true,
+    "navigationBarTitleText": "第一个小程序",
+    "navigationBarTextStyle": "black"
+  }
+}

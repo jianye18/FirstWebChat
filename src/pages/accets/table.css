@@ -1,0 +1,55 @@
+.table_title{
+  font-size: 20px;
+  color: #000000;
+  font-weight: bold;
+  padding: 5px 10px;
+}
+.tableView{
+  border:1px solid #000;
+  border-right:0;
+  border-bottom: 0;
+  width: 350px;
+  margin: 0 auto;
+}
+/* 表格cell */
+.table_cell{
+  display: flex;
+  justify-content: space-between; /* 项目位于各行之间留有空白的容器内。 */
+  width: 100%;
+  font-size: 25rpx;
+  color: #330e0e;
+  text-align: center;
+}
+.td{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  height: auto;
+  border-bottom: 1px solid #000;
+  border-right: 1px solid #000;
+
+}
+.td1{
+  width: 30%
+}
+.td2 {
+  width: 70%;
+  color: #515a6e;
+  word-wrap: break-word;
+  word-break: break-all;
+  overflow: hidden;
+}
+.editor_content{
+  line-height: 35px;
+  border-bottom: 1px solid #000;
+  border-right: 1px solid #000;
+}
+.search_text{
+  width: 350px;
+  height: 35px;
+  border: 1px solid #e2e2e2;
+  border-radius: 5px;
+  margin: 0 auto 5px;
+  padding-left: 5px;
+}
