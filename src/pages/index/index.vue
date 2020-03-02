@@ -16,9 +16,33 @@
   .article_data{
     font-size: 20px;
   }
+  .article_div{
+    border-bottom: 1px solid #e2e2e2;
+  }
+  .article_title{
+    font-size: 20px;
+    max-height: 48px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 8px;
+    border-bottom: 1px solid #e2e2e2;
+  }
   .article_content{
-    font-size: 16px;
-    min-height: 20px;
+    height: 30px;
+    line-height: 30px;
+  }
+  .article_detail{
+    text-align: center;
+    color: #8E8E8E;
+  }
+  .article_type{
+    width: 49%;
+    float: left;
+    border-right: 1px solid #e2e2e2;
+  }
+  .article_time{
+    width: 50%;
+    float: right;
   }
 </style>
 <template>
@@ -35,7 +59,7 @@
         </block>
       </swiper>
     </view>
-    <i-grid>
+    <!--<i-grid>
       <i-grid-item @click="toList('LW')">
         <i-grid-icon>
           <i-icon type="activity" size="28" color="#80848f" />
@@ -62,8 +86,8 @@
         </i-grid-icon>
         <i-grid-label>飞检</i-grid-label>
       </i-grid-item>
-    </i-grid>
-    <div style="border-bottom: 1px solid #e5e5e5; height: 40px; line-height: 40px;">
+    </i-grid>-->
+    <!--<div style="border-bottom: 1px solid #e5e5e5; height: 40px; line-height: 40px;">
       <span style="height: 40px; line-height: 40px; font-size: 20px; margin-left: 10px;">最新文章</span>
       <span style="float: right; padding-right: 10px; color: #B9B9B9; line-height: 40px;" @click="toList('AC')">more</span>
     </div>
@@ -74,7 +98,16 @@
         :key="index"
         :title="item.title"
         @click="viewArticle(item.id)"></i-cell>
-    </i-cell-group>
+    </i-cell-group>-->
+    <div v-for="(item, index) in newArticleList" v-bind:class="[index < newArticleList.length ? 'article_div' : '']">
+      <div class="article_title">
+        {{item.title}}
+      </div>
+      <div class="article_content">
+        <div class="article_detail article_type">{{item.typeName}}</div>
+        <div class="article_detail article_time">{{item.publishTime}}</div>
+      </div>
+    </div>
   </div>
 </template>
 <script>

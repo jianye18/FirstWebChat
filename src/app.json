@@ -16,5 +16,32 @@
     "enablePullDownRefresh": true,
     "navigationBarTitleText": "第一个小程序",
     "navigationBarTextStyle": "black"
+  },
+
+  "tabBar": {
+    "color": "#7A7E83",
+    "selectedColor": "green",
+    "borderStyle": "black",
+    "backgroundColor": "#fff",
+    "list": [
+      {
+        "pagePath": "pages/index/main",
+        "iconPath": "static/images/zhuye.png",
+        "selectedIconPath": "static/images/zhuye.png",
+        "text": "主页"
+      },
+      {
+        "pagePath": "pages/list/main",
+        "iconPath": "static/images/fenlei.png",
+        "selectedIconPath": "static/images/fenlei.png",
+        "text": "分类"
+      },
+      {
+        "pagePath": "pages/test/main",
+        "iconPath": "static/images/wode.png",
+        "selectedIconPath": "static/images/wode.png",
+        "text": "我的"
+      }
+    ]
   }
 }

@@ -1,5 +1,5 @@
-const host = 'https://www.yezhuhongblog.com/api'
-// const host = 'http://localhost:8090/'
+// const host = 'https://www.yezhuhongblog.com/api'
+const host = 'http://localhost:8090/'
 
 function request (url, method, data, header = {}) {
   wx.showLoading({
