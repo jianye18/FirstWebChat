@@ -22,6 +22,10 @@
         @click="viewArticle(item.id)">
       </i-cell>
     </i-cell-group>-->
+    <view style="height: 30px; line-height: 30px; color: #000000; font-size: 18px; border-bottom: 1px solid #e2e2e2;">
+      <text style="margin-left: 10px;">{{left_text}}</text>
+      <text style="float: right; margin-right: 15px;">{{right_text}}</text>
+    </view>
     <view v-for="(item ,index) in dataList" :key="index" @click="viewArticle(item.id)" class="list_content">
       <view class="list_item list_title">{{item.title}}</view>
       <view class="list_item list_time">{{item.publishTime}}</view>
@@ -43,11 +47,16 @@
           pageSize: 20,
           searchPhrase: ''
         },
-        isPullDownRefresh: false
+        isPullDownRefresh: false,
+        left_text: '文章标题',
+        right_text: '发布时间'
       }
     },
     mounted () {
       this.current = this.$root.$mp.query.type
+      if (!this.current) {
+        this.current = 'AC'
+      }
       this.formData.searchPhrase = this.$root.$mp.query.searchPhrase || ''
       wx.showShareMenu()
       this.getListData()
@@ -73,23 +82,33 @@
         const _this = this
         let url = ''
         if (_this.current === 'AC') {
+          _this.left_text = '文章标题'
+          _this.right_text = '发布时间'
           _this.formData.orderName = 'publish_time'
           _this.formData.isPublish = 1
           url = '/api/article/getArticlePageList'
         }
         if (_this.current === 'SC') {
+          _this.left_text = '样品名称'
+          _this.right_text = '公布日期'
           _this.formData.orderName = 'publish_date'
           url = '/api/spotCheck/getSpotCheckPageList'
         }
         if (_this.current === 'CC') {
+          _this.left_text = '标准名称'
+          _this.right_text = '实施日期'
           _this.formData.orderName = 'implement_date'
           url = '/api/criterion/getCriterionPageList'
         }
         if (_this.current === 'FC') {
+          _this.left_text = '企业名称'
+          _this.right_text = '发布日期'
           _this.formData.orderName = 'publish_date'
           url = '/api/flightCheck/getFlightCheckPageList'
         }
         if (_this.current === 'LW') {
+          _this.left_text = '法规名称'
+          _this.right_text = '实施日期'
           _this.formData.orderName = 'implement_date'
           url = '/api/law/getLawPageList'
         }
@@ -183,6 +202,7 @@
     font-size: 16px;
   }
   .list_content{
+    height: 40px;
     display: flex;
     flex-direction:row;
     justify-content: start;
@@ -196,6 +216,10 @@
   .list_title{
     padding-left: 15px;
     width: 70%;
+    max-width: 70%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
   }
   .list_time{
     width: 25%;

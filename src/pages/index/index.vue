@@ -30,19 +30,22 @@
   .article_content{
     height: 30px;
     line-height: 30px;
+    padding: 0 8px;
   }
   .article_detail{
-    text-align: center;
+    font-size: 14px;
     color: #8E8E8E;
   }
   .article_type{
     width: 49%;
     float: left;
     border-right: 1px solid #e2e2e2;
+    text-align: left;
   }
   .article_time{
     width: 50%;
     float: right;
+    text-align: right;
   }
 </style>
 <template>
