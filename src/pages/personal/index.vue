@@ -2,23 +2,25 @@
   <div class="container">
     <div class="headDiv">
       <div class="head_photo">
-        <i-avatar size="large">叶</i-avatar>
+        <i-avatar size="large"><open-data type="userAvatarUrl"></open-data></i-avatar>
       </div>
-      <div class="head_name">叶竹洪</div>
+      <div class="head_name"><open-data type="userNickName"></open-data></div>
       <div class="head_content">监督产品质量，人人参与，既是权力也是义务。</div>
     </div>
     <div>
       <i-cell-group>
-        <i-cell title="我的积分" icon="mine_fill" is-link>
+        <i-cell title="我的积分">
           <i-icon slot="icon" type="mine_fill" size="28"/>
+          <text slot="footer">10</text>
         </i-cell>
-        <i-cell title="个人信息" icon="mine_fill" is-link>
+        <i-cell title="个人信息" is-link url="/pages/userInfo/main">
           <i-icon slot="icon" type="businesscard" size="28"/>
         </i-cell>
-        <i-cell title="会员类别" icon="mine_fill" is-link>
+        <i-cell title="会员类别">
           <i-icon slot="icon" type="scan" size="28"/>
+          <text slot="footer">普通会员</text>
         </i-cell>
-        <i-cell title="关于博客" icon="mine_fill" is-link>
+        <i-cell title="关于博客" is-link>
           <i-icon slot="icon" type="prompt" size="28"/>
         </i-cell>
       </i-cell-group>
@@ -40,6 +42,10 @@
       wx.showShareMenu()
     },
     methods: {
+      toUserInfo () {
+        const url = '../userInfo/main'
+        mpvue.navigateTo({ url })
+      }
     }
   }
 </script>

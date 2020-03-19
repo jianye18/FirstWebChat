@@ -8,6 +8,7 @@
     "pages/flightCheck/main",
     "pages/article/main",
     "pages/personal/main",
+    "pages/userInfo/main",
     "pages/test/main"
   ],
 
@@ -21,7 +22,7 @@
 
   "tabBar": {
     "color": "#7A7E83",
-    "selectedColor": "green",
+    "selectedColor": "#000000",
     "borderStyle": "black",
     "backgroundColor": "#fff",
     "list": [

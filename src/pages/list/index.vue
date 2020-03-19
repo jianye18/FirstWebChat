@@ -22,8 +22,8 @@
         @click="viewArticle(item.id)">
       </i-cell>
     </i-cell-group>-->
-    <view style="height: 30px; line-height: 30px; color: #000000; font-size: 18px; border-bottom: 1px solid #e2e2e2;">
-      <text style="margin-left: 10px;">{{left_text}}</text>
+    <view style="height: 30px; line-height: 30px; color: #000000; font-size: 16px; border-bottom: 1px solid #e2e2e2;">
+      <text style="margin-left: 12px;">{{left_text}}</text>
       <text style="float: right; margin-right: 15px;">{{right_text}}</text>
     </view>
     <view v-for="(item ,index) in dataList" :key="index" @click="viewArticle(item.id)" class="list_content">
@@ -199,7 +199,7 @@
     font-size: 26rpx;
   }
   .tab_item .i-tabs-tab-title{
-    font-size: 16px;
+    font-size: 16px !important;
   }
   .list_content{
     height: 40px;

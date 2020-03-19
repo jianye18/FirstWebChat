@@ -20,12 +20,12 @@
     border-bottom: 1px solid #e2e2e2;
   }
   .article_title{
-    font-size: 20px;
+    font-size: 18px;
     max-height: 48px;
     overflow: hidden;
     text-overflow: ellipsis;
     padding: 8px;
-    border-bottom: 1px solid #e2e2e2;
+    border-bottom: 1px solid #e9eaec;
   }
   .article_content{
     height: 30px;
@@ -39,7 +39,7 @@
   .article_type{
     width: 49%;
     float: left;
-    border-right: 1px solid #e2e2e2;
+    border-right: 1px solid #e9eaec;
     text-align: left;
   }
   .article_time{
@@ -102,7 +102,7 @@
         :title="item.title"
         @click="viewArticle(item.id)"></i-cell>
     </i-cell-group>-->
-    <div v-for="(item, index) in newArticleList" v-bind:class="[index < newArticleList.length ? 'article_div' : '']">
+    <div v-for="(item, index) in newArticleList" :key="index" v-bind:class="[index < newArticleList.length ? 'article_div' : '']">
       <div class="article_title">
         {{item.title}}
       </div>
