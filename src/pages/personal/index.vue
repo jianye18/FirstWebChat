@@ -11,7 +11,7 @@
       <i-cell-group>
         <i-cell title="我的积分">
           <i-icon slot="icon" type="mine_fill" size="28"/>
-          <text slot="footer">10</text>
+          <text slot="footer">0</text>
         </i-cell>
         <i-cell title="个人信息" is-link url="/pages/userInfo/main">
           <i-icon slot="icon" type="businesscard" size="28"/>
@@ -20,7 +20,7 @@
           <i-icon slot="icon" type="scan" size="28"/>
           <text slot="footer">普通会员</text>
         </i-cell>
-        <i-cell title="关于博客" is-link>
+        <i-cell title="关于博客" is-link url="/pages/about/main">
           <i-icon slot="icon" type="prompt" size="28"/>
         </i-cell>
       </i-cell-group>
@@ -28,11 +28,7 @@
   </div>
 </template>
 <script>
-  import statement from '@/components/statement/statement'
   export default {
-    components: {
-      statement
-    },
     data () {
       return {
         currentId: null

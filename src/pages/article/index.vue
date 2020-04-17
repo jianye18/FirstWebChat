@@ -4,7 +4,7 @@
       {{article.title}}
     </div>
     <div style="font-size: 16px; padding: 5px 10px;">
-      <span>作者：</span>
+      <span>来源：</span>
       <span>{{article.author}}</span>
       <span> 发布于：</span>
       <span>{{article.publishTime}}</span>
@@ -34,6 +34,7 @@ export default {
         url: '/api/article/getArticleById/' + this.currentId
       }).then(res => {
         _this.article = res.data
+        _this.article.replace('src=" ', 'src="https://')
         console.log(_this.article)
       })
     }

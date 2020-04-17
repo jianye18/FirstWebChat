@@ -24,10 +24,13 @@
     </i-cell-group>-->
     <view style="height: 30px; line-height: 30px; color: #000000; font-size: 16px; border-bottom: 1px solid #e2e2e2;">
       <text style="margin-left: 12px;">{{left_text}}</text>
+      <text style="margin-left: 25%;" v-if="current == 'SC' || current == 'FC' ">{{center_text}}</text>
       <text style="float: right; margin-right: 15px;">{{right_text}}</text>
     </view>
     <view v-for="(item ,index) in dataList" :key="index" @click="viewArticle(item.id)" class="list_content">
-      <view class="list_item list_title">{{item.title}}</view>
+      <view class="list_item list_title" :class="[(current == 'SC' || current == 'FC') ? 'list_title_active' : '']">{{item.title}}</view>
+      <view class="list_item list_center_item" v-if="current == 'SC' ">{{item.checkResult}}</view>
+      <view class="list_item list_center_item" v-if="current == 'FC' ">{{item.precautions}}</view>
       <view class="list_item list_time">{{item.publishTime}}</view>
     </view>
   </div>
@@ -49,7 +52,8 @@
         },
         isPullDownRefresh: false,
         left_text: '文章标题',
-        right_text: '发布时间'
+        right_text: '发布时间',
+        center_text: '抽检结果'
       }
     },
     mounted () {
@@ -68,12 +72,14 @@
       },
       handleChange (res) {
         console.log(res)
+        this.dataList = []
+        this.scrollTop = 0
         this.current = res.target.key
         this.formData = {
           orderName: 'publish_date',
           orderType: 'desc',
           pageNum: 1,
-          pageSize: 10,
+          pageSize: 20,
           searchPhrase: ''
         }
         this.getListData()
@@ -91,6 +97,7 @@
         if (_this.current === 'SC') {
           _this.left_text = '样品名称'
           _this.right_text = '公布日期'
+          _this.center_text = '抽检结果'
           _this.formData.orderName = 'publish_date'
           url = '/api/spotCheck/getSpotCheckPageList'
         }
@@ -103,6 +110,7 @@
         if (_this.current === 'FC') {
           _this.left_text = '企业名称'
           _this.right_text = '发布日期'
+          _this.center_text = '处理措施'
           _this.formData.orderName = 'publish_date'
           url = '/api/flightCheck/getFlightCheckPageList'
         }
@@ -169,7 +177,7 @@
         orderName: 'publish_date',
         orderType: 'desc',
         pageNum: 1,
-        pageSize: 10,
+        pageSize: 20,
         searchPhrase: ''
       }
       this.getListData()
@@ -220,6 +228,13 @@
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+  }
+  .list_title_active{
+    width: 50%;
+    max-width: 50%;
+  }
+  .list_center_item{
+    width: 20%;
   }
   .list_time{
     width: 25%;

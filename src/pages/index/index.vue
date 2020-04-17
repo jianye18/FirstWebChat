@@ -25,7 +25,6 @@
     overflow: hidden;
     text-overflow: ellipsis;
     padding: 8px;
-    border-bottom: 1px solid #e9eaec;
   }
   .article_content{
     height: 30px;
@@ -39,7 +38,6 @@
   .article_type{
     width: 49%;
     float: left;
-    border-right: 1px solid #e9eaec;
     text-align: left;
   }
   .article_time{
@@ -51,7 +49,7 @@
 <template>
   <div class="container">
     <i-notice-bar icon="systemprompt" loop>
-      2018年世界杯,将于6月14日至7月15日举行;2018年世界杯,将于6月14日至7月15日举行;
+      叶竹洪博客小程序于2020年4月16号正式上线运营。
     </i-notice-bar>
     <view>
       <swiper class="swiper" :indicator-dots="indicatorDots" :autoplay="autoplay" :interval="interval" :duration="duration">
@@ -102,7 +100,7 @@
         :title="item.title"
         @click="viewArticle(item.id)"></i-cell>
     </i-cell-group>-->
-    <div v-for="(item, index) in newArticleList" :key="index" v-bind:class="[index < newArticleList.length ? 'article_div' : '']">
+    <div v-for="(item, index) in newArticleList" :key="index" v-bind:class="[index < newArticleList.length ? 'article_div' : '']" @click="viewArticle(item.id)">
       <div class="article_title">
         {{item.title}}
       </div>

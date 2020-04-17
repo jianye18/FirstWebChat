@@ -56,16 +56,11 @@
         </view>
       </block>-->
     </view>
-    <statement/>
   </div>
 </template>
 <script>
-import statement from '@/components/statement/statement'
 import '../accets/table.css'
 export default {
-  components: {
-    statement
-  },
   data () {
     return {
       currentId: null,
